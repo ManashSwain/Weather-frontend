@@ -1,4 +1,5 @@
 import { API_CONFIG } from "./config";
+import type { Coordinates } from "./types";
 
 class WeatherAPI {
   private createUrl(endpoint : string, params: Record<string,string|number>){
@@ -16,7 +17,13 @@ class WeatherAPI {
      }
      return response.json();
    }
-  async getCurrentWeather(){}
+  async getCurrentWeather({lat , lon}: Coordinates:Promise<>){
+    const url = this.createUrl(`${API_CONFIG.BASE_URL}/weather`, {
+        lat : lat.toString(),
+        lon:lon.toString(),
+        Units:API_CONFIG.DEFAULT_PARAMS.units,
+    })
+  }
   async getForecast(){}
   async reverseGeocode(){}
 }
