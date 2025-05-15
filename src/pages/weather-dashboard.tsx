@@ -13,7 +13,9 @@ const weatherDashboard = () => {
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const weatherQuery = useWeatherQuery(coordinates);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const forecastQuery = useForecastQuery(coordinates);
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const locationQuery = useReverseGeocodeQuery(coordinates);
     // console.log(weatherQuery);
     // console.log(forecastQuery);
@@ -93,9 +95,10 @@ const weatherDashboard = () => {
   <div className="grid gap-6">
 
     <div >
-        <CurrentWeather data={weatherQuery.data} locationName={locationName}/>
         {/* current weather  */}
+        <CurrentWeather data={weatherQuery.data} locationName={locationName}/>
         {/* hourly temperature  */}
+        
     </div>
     <div>
         {/* details  */}
