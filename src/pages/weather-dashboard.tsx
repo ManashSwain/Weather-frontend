@@ -57,6 +57,25 @@ const weatherDashboard = () => {
         </AlertDescription>
        </Alert>
     }
+
+    const locationName = locationQuery.data?.[0];
+    if(weatherQuery.error||forecastQuery.error){
+          return <Alert variant={"destructive"}>
+        <AlertTriangle className="h-4 w-4"/>
+        <AlertTitle>Error</AlertTitle>
+        <AlertDescription className="flex flex-col gap-4">
+            <p>Failed to fetch weather data. Please try again</p>
+            <Button onClick={handleRefresh} variant={"outline"} className="w-fit">
+                <RefreshCw className="mr-2 h-4 w-4"/>
+                Enable Location
+            </Button>
+        </AlertDescription>
+       </Alert>
+    }
+
+    if(!weatherQuery.data || !forecastQuery.data){
+        return <WeatherSkeleton/>
+    }
   return (
     <div className="space-y-4">
      {/* Favourite cities  */}
@@ -64,9 +83,9 @@ const weatherDashboard = () => {
         <h1 className="text-xl font-bold tracking-tight">My Location</h1>
         <Button  variant = {'outline'} size={"icon"}
          onClick={handleRefresh}
-        // disabled={}
+        disabled={weatherQuery.isFetching || forecastQuery.isFetching}
          >
-            <RefreshCw className="h-4 w-4"/>
+            <RefreshCw className={`h-4 w-4 ${weatherQuery.isFetching ? "animate-spin" : ""}`}/>
         </Button>
      </div>
      {/* current and hourly weather  */}
