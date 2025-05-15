@@ -22,7 +22,7 @@ class WeatherAPI {
         lat : lat.toString(),
         lon:lon.toString(),
         Units:API_CONFIG.DEFAULT_PARAMS.units,
-    })
+    });
   }
   async getForecast(){}
   async reverseGeocode(){}
