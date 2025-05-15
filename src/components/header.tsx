@@ -15,7 +15,7 @@ const header = () => {
     <h1 className="text-blue-700 font-bold text-3xl p-2">Forcastify</h1>
     <img src={isDark ? "/logo.png" : "/logo.png"} alt="logo" />
     </Link>
-    <div>
+    <div className="flex gap-4">
         {/* search  */}
         <CitySearch/>
         {/* theme toggle  */}
