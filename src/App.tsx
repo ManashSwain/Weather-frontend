@@ -30,7 +30,7 @@ function App() {
      <Layout>  
         <Routes>
           <Route path='/'element={<WeatherDashboard/>}/>
-          <Route path='/city/:city'element={<CityPage/>}/>
+          <Route path='/city/:cityName'element={<CityPage/>}/>
         </Routes>
      </Layout>
      </ThemeProvider>
