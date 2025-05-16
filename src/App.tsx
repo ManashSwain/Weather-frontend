@@ -9,6 +9,7 @@ import {
    QueryClient
 } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 const queryClient = new QueryClient({
   defaultOptions : {
     queries : {
@@ -25,6 +26,7 @@ function App() {
   return (
     <>
     <QueryClientProvider client={queryClient}>
+      <ErrorBoundary>
      <BrowserRouter>
      <ThemeProvider defaultTheme="dark">
      <Layout>  
@@ -36,6 +38,7 @@ function App() {
      </ThemeProvider>
      </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
+      </ErrorBoundary>
   </QueryClientProvider>
     </>
   )
